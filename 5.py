@@ -75,7 +75,7 @@ def lisensi():
                     toket = open('login.txt', 'r')
                     menu()
                 except (KeyError, IOError):
-                    login()
+                    masuk()
 
             else:
                 print '\x1b[1;91m[!] Salah'
