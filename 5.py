@@ -82,6 +82,30 @@ def lisensi():
                 time.sleep(1)
                 keluar()
 
+def masuk():
+    os.system('reset')
+    print logo
+    print '\x1b[1;97m\xe2\x95\x91--\x1b[1;91m> \x1b[1;92m1.\x1b[1;97m Login'
+    print '\x1b[1;97m\xe2\x95\x91--\x1b[1;91m> \x1b[1;92m2.\x1b[1;97m Login dengan token'
+    print '\x1b[1;97m\xe2\x95\x91--\x1b[1;91m> \x1b[1;91m0.\x1b[1;97m Exit'
+    print '\x1b[1;97m\xe2\x95\x91'
+    msuk = raw_input('\x1b[1;97m\xe2\x95\x9a\xe2\x95\x90\x1b[1;91mD \x1b[1;97m')
+    if msuk == '':
+        print '\x1b[1;91m[!] Wrong input'
+        keluar()
+    else:
+        if msuk == '1':
+            login()
+        else:
+            if msuk == '2':
+                tokenz()
+            else:
+                if msuk == '0':
+                    keluar()
+                else:
+                    print '\x1b[1;91m[!] Wrong input'
+                    keluar()
+
 
 def login():
     os.system('clear')
