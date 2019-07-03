@@ -1187,7 +1187,7 @@ def yahoolist():
     menu_yahoo()
 
 
-def dump():
+def grab():
     os.system('reset')
     try:
         toket = open('login.txt', 'r').read()
@@ -1211,14 +1211,14 @@ def dump():
     print "\x1b[1;97m\xe2\x95\x91--\x1b[1;91m> \x1b[1;92m10.\x1b[1;97m Get a friend's phone number from friend"
     print '\x1b[1;97m\xe2\x95\x91--\x1b[1;91m> \x1b[1;91m0.\x1b[1;97m Back'
     print '\xe2\x95\x91'
-    dump_pilih()
+    grab_pilih()
 
 
-def dump_pilih():
+def grab_pilih():
     cuih = raw_input('\x1b[1;97m\xe2\x95\x9a\xe2\x95\x90\x1b[1;91mD \x1b[1;97m')
     if cuih == '':
         print '\x1b[1;91m[!] Wrong input'
-        dump_pilih()
+        grab_pilih()
     else:
         if cuih == '1':
             id_teman()
@@ -1256,7 +1256,7 @@ def dump_pilih():
                                                     menu()
                                                 else:
                                                     print '\x1b[1;91m[!] Wrong input'
-                                                    dump_pilih()
+                                                    grab_pilih()
 
 
 def id_teman():
@@ -1296,19 +1296,19 @@ def id_teman():
             os.rename('out/id_teman.txt', 'out/' + done)
             print '\r\x1b[1;91m[+] \x1b[1;92mFile saved \x1b[1;91m: \x1b[1;97mout/' + done
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except IOError:
             print '\x1b[1;91m[!] Error creating file'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except (KeyboardInterrupt, EOFError):
             print '\x1b[1;91m[!] Stopped'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except KeyError:
             print '\x1b[1;91m[!] Error'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except requests.exceptions.ConnectionError:
             print '\x1b[1;91m[\xe2\x9c\x96] No connection'
             keluar()
@@ -1340,7 +1340,7 @@ def idfrom_teman():
             except KeyError:
                 print '\x1b[1;91m[!] Friend not found'
                 raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-                dump()
+                grab()
 
             r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(5000)&access_token=' + toket)
             z = json.loads(r.text)
@@ -1361,19 +1361,19 @@ def idfrom_teman():
             os.rename('out/id_teman_from_teman.txt', 'out/' + done)
             print '\r\x1b[1;91m[+] \x1b[1;92mFile saved \x1b[1;91m: \x1b[1;97mout/' + done
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except IOError:
             print '\x1b[1;91m[!] Error creating file'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except (KeyboardInterrupt, EOFError):
             print '\x1b[1;91m[!] Stopped'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except KeyError:
             print '\x1b[1;91m[!] Error'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except requests.exceptions.ConnectionError:
             print '\x1b[1;91m[\xe2\x9c\x96] No connection'
             keluar()
@@ -1404,7 +1404,7 @@ def id_member_grup():
             except KeyError:
                 print '\x1b[1;91m[!] Group not found'
                 raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-                dump()
+                grab()
 
             jalan('\x1b[1;91m[\xe2\x9c\xba] \x1b[1;92mGet group member id \x1b[1;97m...')
             print 42 * '\x1b[1;97m\xe2\x95\x90'
@@ -1425,19 +1425,19 @@ def id_member_grup():
             os.rename('out/member_grup.txt', 'out/' + done)
             print '\r\x1b[1;91m[+] \x1b[1;92mFile saved \x1b[1;91m: \x1b[1;97mout/' + done
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except IOError:
             print '\x1b[1;91m[!] Error creating file'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except (KeyboardInterrupt, EOFError):
             print '\x1b[1;91m[!] Stopped'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except KeyError:
             print '\x1b[1;91m[!] Error'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except requests.exceptions.ConnectionError:
             print '\x1b[1;91m[\xe2\x9c\x96] No connection'
             keluar()
@@ -1468,7 +1468,7 @@ def em_member_grup():
             except KeyError:
                 print '\x1b[1;91m[!] Group not found'
                 raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-                dump()
+                grab()
 
             jalan('\x1b[1;91m[\xe2\x9c\xba] \x1b[1;92mGet group member email \x1b[1;97m...')
             print 42 * '\x1b[1;97m\xe2\x95\x90'
@@ -1495,19 +1495,19 @@ def em_member_grup():
             os.rename('out/em_member_grup.txt', 'out/' + done)
             print '\r\x1b[1;91m[+] \x1b[1;92mFile saved \x1b[1;91m: \x1b[1;97mout/' + done
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except IOError:
             print '\x1b[1;91m[!] Error creating file'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except (KeyboardInterrupt, EOFError):
             print '\x1b[1;91m[!] Stopped'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except KeyError:
             print '\x1b[1;91m[!] Error'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except requests.exceptions.ConnectionError:
             print '\x1b[1;91m[\xe2\x9c\x96] No connection'
             keluar()
@@ -1538,7 +1538,7 @@ def no_member_grup():
             except KeyError:
                 print '\x1b[1;91m[!] Group not found'
                 raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-                dump()
+                grab()
 
             jalan('\x1b[1;91m[\xe2\x9c\xba] \x1b[1;92mGet group member phone number \x1b[1;97m...')
             print 42 * '\x1b[1;97m\xe2\x95\x90'
@@ -1565,19 +1565,19 @@ def no_member_grup():
             os.rename('out/no_member_grup.txt', 'out/' + done)
             print '\r\x1b[1;91m[+] \x1b[1;92mFile saved \x1b[1;91m: \x1b[1;97mout/' + done
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except IOError:
             print '\x1b[1;91m[!] Error creating file'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except (KeyboardInterrupt, EOFError):
             print '\x1b[1;91m[!] Stopped'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except KeyError:
             print '\x1b[1;91m[!] Error'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except requests.exceptions.ConnectionError:
             print '\x1b[1;91m[\xe2\x9c\x96] No connection'
             keluar()
@@ -1625,19 +1625,19 @@ def email():
             os.rename('out/email_teman.txt', 'out/' + done)
             print '\r\x1b[1;91m[+] \x1b[1;92mFile saved \x1b[1;91m: \x1b[1;97mout/' + done
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except IOError:
             print '\x1b[1;91m[!] Error creating file'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except (KeyboardInterrupt, EOFError):
             print '\x1b[1;91m[!] Stopped'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except KeyError:
             print '\x1b[1;91m[!] Error'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except requests.exceptions.ConnectionError:
             print '\x1b[1;91m[\xe2\x9c\x96] No connection'
             keluar()
@@ -1669,7 +1669,7 @@ def emailfrom_teman():
             except KeyError:
                 print '\x1b[1;91m[!] Friend not found'
                 raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-                dump()
+                grab()
 
             r = requests.get('https://graph.facebook.com/' + idt + '/friends?access_token=' + toket)
             a = json.loads(r.text)
@@ -1696,19 +1696,19 @@ def emailfrom_teman():
             os.rename('out/em_teman_from_teman.txt', 'out/' + done)
             print '\r\x1b[1;91m[+] \x1b[1;92mFile saved \x1b[1;91m: \x1b[1;97mout/' + done
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except IOError:
             print '\x1b[1;91m[!] Error creating file'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except (KeyboardInterrupt, EOFError):
             print '\x1b[1;91m[!] Stopped'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except KeyError:
             print '\x1b[1;91m[!] Error'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except requests.exceptions.ConnectionError:
             print '\x1b[1;91m[\xe2\x9c\x96] No connection'
             keluar()
@@ -1758,19 +1758,19 @@ def nomor_hp():
             os.rename('out/nomer_teman.txt', 'out/' + done)
             print '\r\x1b[1;91m[+] \x1b[1;92mFile saved \x1b[1;91m: \x1b[1;97mout/' + done
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except IOError:
             print '\x1b[1;91m[!] Error creating file'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except (KeyboardInterrupt, EOFError):
             print '\x1b[1;91m[!] Stopped'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except KeyError:
             print '\x1b[1;91m[!] Error'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except requests.exceptions.ConnectionError:
             print '\x1b[1;91m[\xe2\x9c\x96] No connection'
             keluar()
@@ -1802,7 +1802,7 @@ def hpfrom_teman():
             except KeyError:
                 print '\x1b[1;91m[!] Friend not found'
                 raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-                dump()
+                grab()
 
             r = requests.get('https://graph.facebook.com/' + idt + '/friends?access_token=' + toket)
             a = json.loads(r.text)
@@ -1829,19 +1829,19 @@ def hpfrom_teman():
             os.rename('out/no_teman_from_teman.txt', 'out/' + done)
             print '\r\x1b[1;91m[+] \x1b[1;92mFile saved \x1b[1;91m: \x1b[1;97mout/' + done
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except IOError:
             print '\x1b[1;91m[!] Error creating file'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except (KeyboardInterrupt, EOFError):
             print '\x1b[1;91m[!] Stopped'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except KeyError:
             print '\x1b[1;91m[!] Error'
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
-            dump()
+            grab()
         except requests.exceptions.ConnectionError:
             print '\x1b[1;91m[\xe2\x9c\x96] No connection'
             keluar()
