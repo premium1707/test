@@ -166,6 +166,28 @@ def login():
             time.sleep(1)
             login()
 
+def tokenz():
+    os.system('reset')
+    print logo
+    toket = raw_input('\x1b[1;91m[?] \x1b[1;92mToken\x1b[1;91m : \x1b[1;97m')
+    try:
+        otw = requests.get('https://graph.facebook.com/me?access_token=' + toket)
+        a = json.loads(otw.text)
+        nama = a['name']
+        zedd = open('login.txt', 'w')
+        zedd.write(toket)
+        zedd.close()
+        menu()
+    except KeyError:
+        print '\x1b[1;91m[!] Wrong'
+        e = raw_input('\x1b[1;91m[?] \x1b[1;92mMau Ambil Token?\x1b[1;97m[y/n]: ')
+        if e == '':
+            keluar()
+        elif e == 'y':
+            login()
+        else:
+            keluar()
+
 
 def menu():
     os.system('clear')
