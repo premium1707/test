@@ -1451,13 +1451,13 @@ def pilih_super():
 							for line in open(idlist,'r').readlines():
 								id.append(line.strip())
 						except IOError:
-							print '\x1b[1;91m[!] File tidak ada'
+							print '\x1b[1;91m[!] File not found'
 							raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
 							super()
 
 					else:
                         if peak == '0':
-                            menu_hack()
+                           menu_hack()
                         else:
                             print '\x1b[1;91m[!] Wrong input'
                             pilih_super()
