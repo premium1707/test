@@ -1456,11 +1456,11 @@ def pilih_super():
 							super()
 
 					else:
-                         if peak == '0':
-                             menu_hack()
-                         else:
-                             print '\x1b[1;91m[!] Wrong input'
-                             pilih_super()
+						if peak == '0':
+							menu_hack()
+						else:
+							print '\x1b[1;91m[!] Wrong input'
+							pilih_super()
     print '\x1b[1;91m[+] \x1b[1;92mTotal ID \x1b[1;91m: \x1b[1;97m' + str(len(id))
     jalan('\x1b[1;91m[\xe2\x9c\xba] \x1b[1;92mStart \x1b[1;97m...')
     titik = ['.   ', '..  ', '... ']
